@@ -4,7 +4,13 @@ const regexpPlayPage = new RegExp(".*://.*\\.youtube\\.com/watch\\?.*");
 if (regexpPlayPage.test(location.href)) {
 
     const isPlaylistInDOM = () => {
-        return document.querySelector("#playlist");
+        try {
+            const playlist = document.querySelector("#playlist[playlist-type]");
+            if (!playlist) throw new Error("再生リストが存在しません。");
+            return true;
+        } catch (error) {
+            return false;
+        }
     }
 
     const isPlaybackFinished = () => {
