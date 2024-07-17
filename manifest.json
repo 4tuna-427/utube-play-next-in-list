@@ -1,0 +1,16 @@
+{
+    "name": "utube-play-next-in-list",
+    "description": "YouTubeで再生リストを再生中、次の動画が再生されなくなるバグ対策として、拡張機能で次の動画を再生する。",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.youtube.com/*"
+            ],
+            "js": [
+                "content_scripts.js"
+            ]
+        }
+    ]
+}
